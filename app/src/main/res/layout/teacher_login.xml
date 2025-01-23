@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
     android:padding="16dp"
-    tools:context=".StudentLogin">
+    tools:context=".TeacherLogin">
 <LinearLayout
     android:id="@+id/loginContainer"
-    android:layout_margin="20dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
+    android:layout_margin="20dp"
     android:layout_centerInParent="true"
     android:background="@drawable/background_gradient"
     android:orientation="vertical"
@@ -33,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:background="@drawable/input_field_background"
-        android:hint="PRN number"
+        android:hint="Username"
         android:inputType="text"
         android:padding="12dp"
         android:textColor="@android:color/black" />
