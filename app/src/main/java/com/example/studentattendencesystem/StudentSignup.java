@@ -70,7 +70,7 @@ public class StudentSignup extends AppCompatActivity {
         // Send data to server
         new Thread(() -> {
             try {
-                URL url = new URL("https://10.0.2.2/student_attendence_system/student_signup.php");
+                URL url = new URL("http://10.0.2.2/student_attendence_system/student_signup.php");
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setDoOutput(true);
