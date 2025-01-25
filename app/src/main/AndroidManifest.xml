@@ -26,6 +26,7 @@
         <activity android:name=".TeacherDashboardActivity"/>
         <activity android:name=".StudentLogin"/>
         <activity android:name=".TeacherLogin"/>
+        <activity android:name=".TeacherSignup"/>
         <activity android:name=".StudentSignup"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
