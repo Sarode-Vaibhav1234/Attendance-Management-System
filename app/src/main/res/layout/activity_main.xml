@@ -92,16 +92,6 @@
 
         </LinearLayout>
 
-        <!-- Register Message -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Don't have an account? Register"
-            android:textColor="@color/color8"
-            android:textSize="16sp"
-            android:layout_marginTop="20dp"
-            android:layout_gravity="center_horizontal" />
-
     </LinearLayout>
 
 </RelativeLayout>

@@ -65,8 +65,16 @@
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_button"
         android:padding="12dp"
-        android:layout_marginBottom="24dp"
         android:text="Log In"
         android:textColor="@android:color/white" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/t1"
+        android:text="Don't have an account? Register"
+        android:textColor="@color/color8"
+        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
 </RelativeLayout>

@@ -1,19 +1,10 @@
 package com.example.studentattendencesystem;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void teacherLogin(View v) {
-        Toast.makeText(this, "TeacherLogin clicked!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome to TeacherLogin", Toast.LENGTH_SHORT).show();
         Intent i1=new Intent(MainActivity.this,TeacherLogin.class);
         startActivity(i1);
     }
     public void studentLogin(View v) {
-        Toast.makeText(this, "StudentLogin clicked!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Welcome to StudentLogin", Toast.LENGTH_SHORT).show();
         Intent i1=new Intent(MainActivity.this,StudentLogin.class);
         startActivity(i1);
     }
