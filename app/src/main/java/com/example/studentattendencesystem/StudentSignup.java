@@ -79,53 +79,6 @@ public class StudentSignup extends AppCompatActivity {
             return;
         }
 
-        // Send data to the server
-        new Thread(() -> {
-            try {
-                URL url = new URL("http://10.0.2.2/student_attendence_system/student_signup.php");
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setRequestMethod("POST");
-                conn.setDoOutput(true);
 
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-
-                String data = URLEncoder.encode("name", "UTF-8") + "=" + URLEncoder.encode(name, "UTF-8") + "&" +
-                        URLEncoder.encode("prn", "UTF-8") + "=" + URLEncoder.encode(prn, "UTF-8") + "&" +
-                        URLEncoder.encode("email", "UTF-8") + "=" + URLEncoder.encode(email, "UTF-8") + "&" +
-                        URLEncoder.encode("admission", "UTF-8") + "=" + URLEncoder.encode(admission, "UTF-8") + "&" +
-                        URLEncoder.encode("contact", "UTF-8") + "=" + URLEncoder.encode(contact, "UTF-8") + "&" +
-                        URLEncoder.encode("password", "UTF-8") + "=" + URLEncoder.encode(password, "UTF-8");
-
-                writer.write(data);
-                writer.flush();
-                writer.close();
-                os.close();
-
-                // Read the response
-                BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-                reader.close();
-
-                // Handle the server response
-                String responseStr = response.toString();
-                Log.d("Server Response", responseStr);
-
-                runOnUiThread(() -> {
-                    if (responseStr.contains("\"status\":\"success\"")) {
-                        Toast.makeText(StudentSignup.this, "Signup successful!", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(StudentSignup.this, "Signup failed. Try again.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-                runOnUiThread(() -> Toast.makeText(StudentSignup.this, "Error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
-            }
-        }).start();
     }
 }

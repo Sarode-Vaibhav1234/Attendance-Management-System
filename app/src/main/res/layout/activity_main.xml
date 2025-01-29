@@ -11,83 +11,83 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <!-- Image View -->
         <ImageView
             android:id="@+id/img"
             android:layout_width="match_parent"
             android:layout_height="170dp"
-            android:src="@drawable/image"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/image" />
 
         <!-- Horizontal Container for Teacher and Student -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <!-- Teacher Section -->
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:padding="20dp">
 
                 <ImageButton
                     android:id="@+id/b1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/education"
-                    android:background="@drawable/background_gradient"
-                    android:scaleType="centerInside"
                     android:layout_marginBottom="8dp"
-                    android:onClick="teacherLogin"/>
+                    android:background="@drawable/background_gradient"
+                    android:onClick="teacherLogin"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/education" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
                     android:text="Teacher Login"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <!-- Student Section -->
             <LinearLayout
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:padding="20dp">
 
                 <ImageButton
                     android:id="@+id/b2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/student"
-                    android:background="@drawable/background_gradient"
-                    android:scaleType="centerInside"
                     android:layout_marginBottom="8dp"
-                    android:onClick="studentLogin"/>
+                    android:background="@drawable/background_gradient"
+                    android:onClick="studentLogin"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/student" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="8dp"
                     android:text="Student Login"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="8dp" />
+                    android:textStyle="bold" />
             </LinearLayout>
 
         </LinearLayout>
