@@ -56,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void teacherLogin(View v) {
-        Toast.makeText(this, "Welcome to TeacherLogin", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Welcome to TeacherLogin", Toast.LENGTH_SHORT).show();
         Intent i1=new Intent(MainActivity.this,TeacherLogin.class);
         startActivity(i1);
     }
     public void studentLogin(View v) {
-        Toast.makeText(this, "Welcome to StudentLogin", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Welcome to StudentLogin", Toast.LENGTH_SHORT).show();
         Intent i1=new Intent(MainActivity.this,StudentLogin.class);
         startActivity(i1);
     }
