@@ -27,7 +27,7 @@ public class TeacherSignup extends AppCompatActivity {
     private Button signupButton;
     private TextView errorMessage;
 
-    String url = "http://localhost/Project/registration.php";
+    String url = "http://192.168.221.247/Project/registration.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
