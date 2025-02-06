@@ -36,6 +36,8 @@ public class StudentLogin extends AppCompatActivity {
             ((AnimatedImageDrawable) drawable).start();
         }
 
+
+
         imageView.setImageDrawable(drawable);
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
