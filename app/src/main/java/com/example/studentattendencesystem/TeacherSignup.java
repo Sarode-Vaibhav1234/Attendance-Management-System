@@ -11,11 +11,23 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class TeacherSignup extends AppCompatActivity {
 
     private EditText username, email, password, confirmPassword, department, phone;
     private Button signupButton;
     private TextView errorMessage;
+
+    String url = "http://localhost/Project/registration.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,5 +80,58 @@ public class TeacherSignup extends AppCompatActivity {
         if (TextUtils.isEmpty(phoneInput) && phoneInput.length() != 10) {
             Toast.makeText(getApplicationContext(), "Contact no is required", Toast.LENGTH_SHORT).show();
         }
+   // }
+
+//    private void sendDataToServer() {
+
+//        String name, mobile, email, password;
+//
+//        name = edt.getText().toString().trim();
+//        mobile = edt2.getText().toString().trim();
+//        email = edt3.getText().toString().trim();
+//        password = edt4.getText().toString().trim();
+//
+//        // Validate input
+//        if (name.isEmpty() || mobile.isEmpty() || email.isEmpty() || password.isEmpty()) {
+//            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+
+        // Create a Volley request queue
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+
+        // Create a StringRequest for the POST request
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.POST,
+                url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Toast.makeText(TeacherSignup.this, "Server Response: " + response, Toast.LENGTH_LONG).show();
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(TeacherSignup.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }) {
+            @Override
+            protected Map<String, String> getParams() {
+                // Send parameters to the server
+                Map<String, String> params = new HashMap<>();
+                params.put("name", usernameInput);
+                params.put("email", emailInput);
+                params.put("password", passwordInput);
+                params.put("department", departmentInput);
+                params.put("phone",phoneInput);
+                return params;
+            }
+        };
+
+        // Add the request to the request queue
+        requestQueue.add(stringRequest);
     }
+
+
 }
