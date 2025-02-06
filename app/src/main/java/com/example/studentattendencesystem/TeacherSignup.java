@@ -1,11 +1,15 @@
 package com.example.studentattendencesystem;
 
+import android.animation.ObjectAnimator;
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +46,18 @@ public class TeacherSignup extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         signupButton = findViewById(R.id.signup_button);
 
+        ImageView imageView = findViewById(R.id.imageView);
+
+        Drawable drawable = getDrawable(R.drawable.signup);
+
+        if (drawable instanceof AnimatedImageDrawable) {
+            ((AnimatedImageDrawable) drawable).start();
+        }
+
+        imageView.setImageDrawable(drawable);
+        imageView.setAdjustViewBounds(true);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,26 +75,34 @@ public class TeacherSignup extends AppCompatActivity {
         String phoneInput = phone.getText().toString().trim();
 
         if (TextUtils.isEmpty(usernameInput)) {
+            shakeAnimation(username);
             Toast.makeText(getApplicationContext(), "Enter User name", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(emailInput) || !Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
+            shakeAnimation(email);
             Toast.makeText(getApplicationContext(), "Valid email is required", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(passwordInput) || passwordInput.length() < 6) {
+            shakeAnimation(password);
             Toast.makeText(getApplicationContext(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             return;
         }
         if (!passwordInput.equals(confirmPasswordInput)) {
+            shakeAnimation(confirmPassword);
             Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(departmentInput)) {
+            shakeAnimation(department);
             Toast.makeText(getApplicationContext(), "Department is required", Toast.LENGTH_SHORT).show();
+            return;
         }
         if (TextUtils.isEmpty(phoneInput) && phoneInput.length() != 10) {
+            shakeAnimation(phone);
             Toast.makeText(getApplicationContext(), "Contact no is required", Toast.LENGTH_SHORT).show();
+            return;
         }
    // }
 
@@ -131,6 +155,12 @@ public class TeacherSignup extends AppCompatActivity {
 
         // Add the request to the request queue
         requestQueue.add(stringRequest);
+    }
+
+    private void shakeAnimation(View view) {
+        ObjectAnimator shake = ObjectAnimator.ofFloat(view, "translationX", 0, 10, -10, 10, -10, 5, -5, 0);
+        shake.setDuration(400);
+        shake.start();
     }
 
 

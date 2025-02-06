@@ -1,92 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:background="@drawable/gradient">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#FAFAFAFA"
+    android:padding="16dp">
 
-    <LinearLayout
+
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Login Image"
+        android:scaleType="centerInside"
+        android:layout_weight="0"/>
 
-        <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Student Signup"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#E96D83"
-            android:layout_gravity="center"/>
-        <!-- Name -->
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Full Name"
-            android:layout_marginTop="50dp"
-            android:inputType="textPersonName" />
 
-        <!-- PRN Number -->
-        <EditText
-            android:id="@+id/et_prn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="PRN Number"
-            android:inputType="number"
-            android:layout_marginTop="20dp"/>
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/user"
+         android:drawablePadding="13dp"
+         android:layout_weight="0"/>
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:layout_marginTop="20dp"
-            android:inputType="textPassword" />
 
-        <EditText
-            android:id="@+id/confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Confirm Password"
-            android:layout_marginTop="20dp"
-            android:inputType="textPassword" />
+    <EditText
+        android:id="@+id/et_prn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PRN Number"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/prn"
+        android:drawablePadding="13dp"
+        android:layout_weight="0"/>
 
-        <!-- Email ID -->
-        <EditText
-            android:id="@+id/et_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email ID"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="20dp"/>
+    <!-- Password EditText -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/password"
+    android:drawablePadding="13dp"
+    android:layout_weight="0"/>
 
-        <!-- Admission Number -->
-        <EditText
-            android:id="@+id/et_admission"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Admission Number"
-            android:inputType="number"
-            android:layout_marginTop="20dp"/>
+    <!-- Confirm Password EditText -->
+    <EditText
+        android:id="@+id/confirm_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawablePadding="13dp"
+        android:drawableStart="@drawable/password"
+    android:layout_weight="0"/>
 
-        <!-- Contact Number -->
-        <EditText
-            android:id="@+id/et_contact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Contact Number"
-            android:inputType="phone"
-            android:layout_marginTop="20dp"/>
+    <!-- Email ID EditText -->
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email ID"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/email"
+    android:drawablePadding="13dp"
+    android:layout_weight="0"/>
 
-        <!-- Submit Button -->
-        <Button
-            android:id="@+id/btn_signup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:layout_marginTop="20dp" />
+    <!-- Admission Number EditText -->
+    <EditText
+        android:id="@+id/et_admission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Admission Number"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/admission"
+    android:drawablePadding="13dp"
+    android:layout_weight="0"/>
 
-    </LinearLayout>
-</ScrollView>
+    <!-- Contact Number EditText -->
+    <EditText
+        android:id="@+id/et_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact Number"
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/phone"
+    android:drawablePadding="13dp"
+    android:layout_weight="0"/>
+
+    <!-- Sign-Up Button -->
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up As Student"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2A46E7"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_weight="0"/>
+
+    <!-- Sign Up Text -->
+    <TextView
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an account? Login"
+        android:textColor="#1E90FF"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center"
+        android:layout_weight="0"/>
+
+</LinearLayout>

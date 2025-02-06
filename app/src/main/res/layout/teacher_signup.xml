@@ -3,79 +3,120 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/gradient">
+    android:gravity="center"
+    android:background="#FAFAFAFA"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Teacher Signup"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:textColor="#E96D83"
-        android:layout_gravity="center"/>
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Login Image"
+        android:scaleType="centerInside"
+        android:layout_weight="0"/>
 
     <EditText
         android:id="@+id/username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="User Name"
-        android:inputType="text"
-        android:layout_marginTop="50dp"/>
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/user"
+        android:drawablePadding="13dp"/>
 
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email Address"
-        android:inputType="textEmailAddress"
-        android:layout_marginTop="20dp"/>
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="13dp"/>
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Password"
-        android:layout_marginTop="20dp"
-        android:inputType="textPassword" />
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/password"
+        android:drawablePadding="13dp"/>
 
     <EditText
         android:id="@+id/confirm_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Confirm Password"
-        android:layout_marginTop="20dp"
-        android:inputType="textPassword" />
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:inputType="textPassword"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/password"
+        android:drawablePadding="13dp"/>
 
     <EditText
         android:id="@+id/department"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Department"
-        android:layout_marginTop="20dp"
-        android:inputType="text" />
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/admission"
+        android:drawablePadding="13dp"/>
 
     <EditText
         android:id="@+id/phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Phone Number"
-        android:layout_marginTop="20dp"
-        android:inputType="phone" />
+        android:textSize="16dp"
+        android:padding="10dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/edittext_background2"
+        android:textColor="#000000"
+        android:textColorHint="#808080"
+        android:drawableStart="@drawable/phone"
+        android:drawablePadding="13dp"/>
 
     <Button
         android:id="@+id/signup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:layout_marginTop="20dp"/>
+        android:text="Sign Up As Teacher"
+        android:padding="12dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#2A46E7"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/error_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="@android:color/holo_red_light"
-        android:visibility="gone" />
-
+        android:visibility="gone"/>
 </LinearLayout>

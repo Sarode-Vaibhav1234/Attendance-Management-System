@@ -1,11 +1,17 @@
 package com.example.studentattendencesystem;
 
+import android.animation.ObjectAnimator;
+import android.graphics.drawable.AnimatedImageDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +44,17 @@ public class StudentSignup extends AppCompatActivity {
         etPassword = findViewById(R.id.password);
         etConfirmPassword = findViewById(R.id.confirm_password);
         btnSignup = findViewById(R.id.btn_signup);
+        ImageView imageView = findViewById(R.id.imageView);
+
+        Drawable drawable = getDrawable(R.drawable.signup);
+
+        if (drawable instanceof AnimatedImageDrawable) {
+            ((AnimatedImageDrawable) drawable).start();
+        }
+
+        imageView.setImageDrawable(drawable);
+        imageView.setAdjustViewBounds(true);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
         btnSignup.setOnClickListener(v -> signup());
     }
@@ -51,11 +68,45 @@ public class StudentSignup extends AppCompatActivity {
         String password = etPassword.getText().toString().trim();
         String confirmPassword = etConfirmPassword.getText().toString().trim();
 
-        // Validate inputs
-        if (TextUtils.isEmpty(name) || TextUtils.isEmpty(prn) || TextUtils.isEmpty(email) ||
-                TextUtils.isEmpty(admission) || TextUtils.isEmpty(contact) ||
-                TextUtils.isEmpty(password) || TextUtils.isEmpty(confirmPassword)) {
+        if (name.isEmpty()) {
             Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etName);
+            return;
+        }
+
+        if (prn.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etPrn);
+            return;
+        }
+
+        if (email.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etEmail);
+            return;
+        }
+
+        if (admission.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etAdmission);
+            return;
+        }
+
+        if (contact.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etContact);
+            return;
+        }
+
+        if (password.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etPassword);
+            return;
+        }
+
+        if (confirmPassword.isEmpty()) {
+            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
+            shakeAnimation(etConfirmPassword);
             return;
         }
 
@@ -80,5 +131,13 @@ public class StudentSignup extends AppCompatActivity {
         }
 
 
+
+
+
+    }
+    private void shakeAnimation(View view) {
+        ObjectAnimator shake = ObjectAnimator.ofFloat(view, "translationX", 0, 10, -10, 10, -10, 5, -5, 0);
+        shake.setDuration(400);
+        shake.start();
     }
 }
