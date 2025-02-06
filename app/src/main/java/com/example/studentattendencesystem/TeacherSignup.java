@@ -31,7 +31,11 @@ public class TeacherSignup extends AppCompatActivity {
     private Button signupButton;
     private TextView errorMessage;
 
+<<<<<<< HEAD
     String url = "http://192.168.221.247/Project/registration.php";
+=======
+    String url = "http://192.168.24.200/Project/registration.php";
+>>>>>>> 5b09090 (Teacher login has been updated)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,7 @@ public class TeacherSignup extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 validateInputs();
             }
         });
@@ -144,7 +149,7 @@ public class TeacherSignup extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Send parameters to the server
                 Map<String, String> params = new HashMap<>();
-                params.put("name", usernameInput);
+                params.put("username", usernameInput);
                 params.put("email", emailInput);
                 params.put("password", passwordInput);
                 params.put("department", departmentInput);
