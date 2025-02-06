@@ -32,7 +32,7 @@
         android:textColorHint="#808080"
         android:layout_weight="0"/>
 
-    <!-- Password EditText -->
+
     <EditText
         android:id="@+id/passwordEditText"
         android:layout_width="match_parent"
