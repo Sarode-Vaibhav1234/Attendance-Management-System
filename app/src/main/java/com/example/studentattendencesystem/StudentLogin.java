@@ -23,15 +23,11 @@ public class StudentLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_login);
 
-<<<<<<< HEAD
         Button submitbtn = findViewById(R.id.loginButton);
         EditText prn = findViewById(R.id.prnEditText);
         EditText password = findViewById(R.id.prnEditText);
         TextView tv1 = findViewById(R.id.signUpTextView);
-=======
-        TextView tv1=findViewById(R.id.signUpTextView);
         // Find the ImageView where the GIF will be displayed
->>>>>>> 5b09090 (Teacher login has been updated)
         ImageView imageView = findViewById(R.id.imageView);
 
         Drawable drawable = getDrawable(R.drawable.loginimg);

@@ -31,12 +31,7 @@ public class TeacherSignup extends AppCompatActivity {
     private Button signupButton;
     private TextView errorMessage;
 
-<<<<<<< HEAD
     String url = "http://192.168.221.247/Project/registration.php";
-=======
-    String url = "http://192.168.24.200/Project/registration.php";
->>>>>>> 5b09090 (Teacher login has been updated)
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
