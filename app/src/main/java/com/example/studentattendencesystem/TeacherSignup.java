@@ -5,12 +5,12 @@ import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,14 +29,16 @@ public class TeacherSignup extends AppCompatActivity {
 
     private EditText username, email, password, confirmPassword, department, phone;
     private Button signupButton;
-    private TextView errorMessage;
 
-    String url = "http://192.168.221.247/Project/registration.php";
+    // Server API URL (Make sure your backend is running and accessible)
+     String URL = "http://10.0.2.2/Project/registration.php";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.teacher_signup);
 
+        // Initialize UI Components
         username = findViewById(R.id.username);
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -44,28 +46,27 @@ public class TeacherSignup extends AppCompatActivity {
         department = findViewById(R.id.department);
         phone = findViewById(R.id.phone);
         signupButton = findViewById(R.id.signup_button);
-
         ImageView imageView = findViewById(R.id.imageView);
 
+        // Animated image setup (if applicable)
         Drawable drawable = getDrawable(R.drawable.signup);
-
         if (drawable instanceof AnimatedImageDrawable) {
             ((AnimatedImageDrawable) drawable).start();
         }
-
         imageView.setImageDrawable(drawable);
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
+        // Set onClickListener for signup button
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 validateInputs();
             }
         });
     }
 
+    // Validate user inputs before sending data
     private void validateInputs() {
         String usernameInput = username.getText().toString().trim();
         String emailInput = email.getText().toString().trim();
@@ -76,92 +77,80 @@ public class TeacherSignup extends AppCompatActivity {
 
         if (TextUtils.isEmpty(usernameInput)) {
             shakeAnimation(username);
-            Toast.makeText(getApplicationContext(), "Enter User name", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter Username", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(emailInput) || !Patterns.EMAIL_ADDRESS.matcher(emailInput).matches()) {
             shakeAnimation(email);
-            Toast.makeText(getApplicationContext(), "Valid email is required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Valid email is required", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(passwordInput) || passwordInput.length() < 6) {
             shakeAnimation(password);
-            Toast.makeText(getApplicationContext(), "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
             return;
         }
         if (!passwordInput.equals(confirmPasswordInput)) {
             shakeAnimation(confirmPassword);
-            Toast.makeText(getApplicationContext(), "Passwords do not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_SHORT).show();
             return;
         }
         if (TextUtils.isEmpty(departmentInput)) {
             shakeAnimation(department);
-            Toast.makeText(getApplicationContext(), "Department is required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Department is required", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (TextUtils.isEmpty(phoneInput) && phoneInput.length() != 10) {
+        if (TextUtils.isEmpty(phoneInput) || phoneInput.length() != 10 || !phoneInput.matches("\\d+")) {
             shakeAnimation(phone);
-            Toast.makeText(getApplicationContext(), "Contact no is required", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Enter a valid 10-digit phone number", Toast.LENGTH_SHORT).show();
             return;
         }
-   // }
 
-//    private void sendDataToServer() {
+        // Send data to server
+        sendDataToServer(usernameInput, emailInput, passwordInput, departmentInput, phoneInput);
+    }
 
-//        String name, mobile, email, password;
-//
-//        name = edt.getText().toString().trim();
-//        mobile = edt2.getText().toString().trim();
-//        email = edt3.getText().toString().trim();
-//        password = edt4.getText().toString().trim();
-//
-//        // Validate input
-//        if (name.isEmpty() || mobile.isEmpty() || email.isEmpty() || password.isEmpty()) {
-//            Toast.makeText(this, "All fields are required", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-
-        // Create a Volley request queue
+    // Send user data to the backend using Volley
+    private void sendDataToServer(String usernameInput, String emailInput, String passwordInput, String departmentInput, String phoneInput) {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
 
-        // Create a StringRequest for the POST request
         StringRequest stringRequest = new StringRequest(
                 Request.Method.POST,
-                url,
+                URL,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Toast.makeText(TeacherSignup.this, "Server Response: " + response, Toast.LENGTH_LONG).show();
+                        Log.d("API_RESPONSE", "Server Response: " + response);
+                        Toast.makeText(TeacherSignup.this, "Response: " + response, Toast.LENGTH_LONG).show();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(TeacherSignup.this, "Error: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                        String message = (error.getMessage() != null) ? error.getMessage() : "Unknown error";
+                        Log.e("API_ERROR", message);
+                        Toast.makeText(TeacherSignup.this, "Error: " + message, Toast.LENGTH_LONG).show();
                     }
                 }) {
             @Override
             protected Map<String, String> getParams() {
-                // Send parameters to the server
                 Map<String, String> params = new HashMap<>();
                 params.put("username", usernameInput);
                 params.put("email", emailInput);
                 params.put("password", passwordInput);
                 params.put("department", departmentInput);
-                params.put("phone",phoneInput);
+                params.put("phone", phoneInput);
                 return params;
             }
         };
 
-        // Add the request to the request queue
         requestQueue.add(stringRequest);
     }
 
+    // Shake animation for invalid input fields
     private void shakeAnimation(View view) {
         ObjectAnimator shake = ObjectAnimator.ofFloat(view, "translationX", 0, 10, -10, 10, -10, 5, -5, 0);
         shake.setDuration(400);
         shake.start();
     }
-
-
 }
