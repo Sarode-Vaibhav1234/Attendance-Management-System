@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@drawable/img_12">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -45,6 +45,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/takeAttendance"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
@@ -71,6 +72,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/studentReports"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
@@ -97,6 +99,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/manageTimetable"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
@@ -123,6 +126,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/examManagement"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
@@ -149,6 +153,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/messages"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
@@ -175,6 +180,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="120dp"
+                android:id="@+id/leaveRequests"
                 android:layout_columnWeight="1"
                 android:orientation="vertical"
                 android:background="#FFFFFF"
