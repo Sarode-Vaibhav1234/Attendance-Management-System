@@ -5,12 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/gradient"
+    android:background="@drawable/img_12"
     android:padding="16dp">
 
     <!-- Image View -->
     <ImageView
         android:id="@+id/imageView"
+        android:src="@drawable/loginimg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

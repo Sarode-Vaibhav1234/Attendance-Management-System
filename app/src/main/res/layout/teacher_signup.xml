@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_12">
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/gradient"
-    android:padding="16dp">
+    android:padding="20dp">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/signup"
         android:layout_marginBottom="16dp"
         android:contentDescription="Login Image"
         android:scaleType="centerInside"
@@ -37,7 +41,7 @@
         android:hint="Email Address"
         android:textSize="16dp"
         android:padding="10dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background2"
         android:textColor="#000000"
         android:textColorHint="#808080"
@@ -51,7 +55,7 @@
         android:hint="Password"
         android:textSize="16dp"
         android:padding="10dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background2"
         android:inputType="textPassword"
         android:textColor="#000000"
@@ -66,7 +70,7 @@
         android:hint="Confirm Password"
         android:textSize="16dp"
         android:padding="10dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background2"
         android:inputType="textPassword"
         android:textColor="#000000"
@@ -81,7 +85,7 @@
         android:hint="Department"
         android:textSize="16dp"
         android:padding="10dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background2"
         android:textColor="#000000"
         android:textColorHint="#808080"
@@ -95,7 +99,7 @@
         android:hint="Phone Number"
         android:textSize="16dp"
         android:padding="10dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="15dp"
         android:background="@drawable/edittext_background2"
         android:textColor="#000000"
         android:textColorHint="#808080"
@@ -108,15 +112,22 @@
         android:layout_height="wrap_content"
         android:text="Sign Up As Teacher"
         android:padding="12dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#2A46E7"
         android:textColor="#FFFFFF"
         android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/error_message"
-        android:layout_width="match_parent"
+        android:id="@+id/signUpTextView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/holo_red_light"
-        android:visibility="gone"/>
+        android:text="Already have an account? Login"
+        android:textColor="#1E90FF"
+        android:layout_marginTop="16dp"
+        android:textStyle="bold"
+        android:clickable="true"
+        android:focusable="true"
+        android:layout_gravity="center"
+        android:layout_weight="0"/>
 </LinearLayout>
+</ScrollView>

@@ -23,7 +23,7 @@ public class StudentLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_login);
 
-        Button submitbtn = findViewById(R.id.loginButton);
+        Button loginbtn = findViewById(R.id.loginButton);
         EditText prn = findViewById(R.id.prnEditText);
         EditText password = findViewById(R.id.prnEditText);
         TextView tv1 = findViewById(R.id.signUpTextView);
@@ -50,17 +50,19 @@ public class StudentLogin extends AppCompatActivity {
             }
         });
 
-        submitbtn.setOnClickListener(new View.OnClickListener() {
+        loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (prn.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please Enter PRN", Toast.LENGTH_SHORT).show();
-                    shakeAnimation(prn);
-                }
-                if (password.getText().toString().isEmpty()) {
-                    Toast.makeText(getApplicationContext(), "Please Enter Password", Toast.LENGTH_SHORT).show();
-                    shakeAnimation(password);
-                }
+//                if (prn.getText().toString().isEmpty()) {
+//                    Toast.makeText(getApplicationContext(), "Please Enter PRN", Toast.LENGTH_SHORT).show();
+//                    shakeAnimation(prn);
+//                }
+//                if (password.getText().toString().isEmpty()) {
+//                    Toast.makeText(getApplicationContext(), "Please Enter Password", Toast.LENGTH_SHORT).show();
+//                    shakeAnimation(password);
+//                }
+                Intent intent = new Intent(StudentLogin.this, StudentDashboardActivity.class);
+                startActivity(intent);
             }
         });
     }
