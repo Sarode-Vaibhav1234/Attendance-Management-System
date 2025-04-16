@@ -2,7 +2,7 @@
 $host = 'localhost';         // Database host (usually localhost)
 $username = 'root'; // Your MySQL username
 $password = ""; // Your MySQL password
-$dbname = 'attendanceDB';   // Your database name
+$dbname = 'attendancedb';   // Your database name
 
 // Create a connection
 $conn = mysqli_connect($host, $username, $password, $dbname);
