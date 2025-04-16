@@ -36,7 +36,7 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)
-
+    implementation("com.github.mhiew:android-pdf-viewer:3.2.0-beta.3")
     implementation(libs.constraintlayout)
     implementation(libs.volley)
     testImplementation(libs.junit)

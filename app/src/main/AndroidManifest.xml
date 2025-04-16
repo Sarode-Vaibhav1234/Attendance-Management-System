@@ -29,6 +29,8 @@
         <activity android:name=".TeacherLogin"/>
         <activity android:name=".TeacherSignup"/>
         <activity android:name=".StudentSignup"/>
+        <activity android:name=".PdfViewerActivity"/>
+        <activity android:name=".StudentDashboardActivity"/>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
 </manifest>
