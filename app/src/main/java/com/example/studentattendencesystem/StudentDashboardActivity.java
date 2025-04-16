@@ -10,6 +10,12 @@ public class StudentDashboardActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.studentdashboard);
         LinearLayout openPdfBtn = findViewById(R.id.academicCalendar);
+        LinearLayout opentimetablebtn = findViewById(R.id.timetable);
+
+        opentimetablebtn.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), studenttimeActivity.class);
+            startActivity(intent);
+        });
 
         openPdfBtn.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), PdfViewerActivity.class);

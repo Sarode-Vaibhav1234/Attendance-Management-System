@@ -42,12 +42,7 @@ public class TeacherDashboardActivity extends AppCompatActivity {
             }
         });
 
-        manageTimetable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), TimetableManagementActivity.class));
-            }
-        });
+
 
         examManagement.setOnClickListener(new View.OnClickListener() {
             @Override

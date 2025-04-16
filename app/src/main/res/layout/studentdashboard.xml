@@ -150,6 +150,7 @@
 
             <!-- Item 5: Messages -->
             <LinearLayout
+                android:id="@+id/timetable"
                 android:layout_width="0dp"
                 android:layout_height="120dp"
                 android:layout_columnWeight="1"

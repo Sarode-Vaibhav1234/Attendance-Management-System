@@ -31,7 +31,7 @@ public class TeacherSignup extends AppCompatActivity {
     private Button signupButton;
 
     // Server API URL (Make sure your backend is running and accessible)
-     String URL = "http://10.0.2.2/Project/registration.php";
+     String URL = "http://192.168.70.37/Project/registration.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
