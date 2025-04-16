@@ -116,4 +116,10 @@ public class TeacherLogin extends AppCompatActivity {
 
         requestQueue.add(stringRequest);
     }
+    public void onBackPressed() {
+        Intent intent = new Intent(TeacherLogin.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+    }
 }

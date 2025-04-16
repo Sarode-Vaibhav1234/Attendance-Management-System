@@ -1,6 +1,7 @@
 package com.example.studentattendencesystem;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,8 +32,10 @@ public class TeacherSignup extends AppCompatActivity {
     private EditText username, email, password, confirmPassword, department, phone;
     private Button signupButton;
 
+    private TextView signUpTextView;
+
     // Server API URL (Make sure your backend is running and accessible)
-     String URL = "http://192.168.70.37/Project/registration.php";
+     String URL = "http://192.168.214.107/Project/TeacherSignup.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,7 @@ public class TeacherSignup extends AppCompatActivity {
         phone = findViewById(R.id.phone);
         signupButton = findViewById(R.id.signup_button);
         ImageView imageView = findViewById(R.id.imageView);
+        signUpTextView =findViewById(R.id.signUpTextView);
 
         // Animated image setup (if applicable)
         Drawable drawable = getDrawable(R.drawable.signup);
@@ -57,6 +62,13 @@ public class TeacherSignup extends AppCompatActivity {
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ii=new Intent(getApplicationContext(), TeacherLogin.class);
+                startActivity(ii);
+            }
+        });
         // Set onClickListener for signup button
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,5 +164,11 @@ public class TeacherSignup extends AppCompatActivity {
         ObjectAnimator shake = ObjectAnimator.ofFloat(view, "translationX", 0, 10, -10, 10, -10, 5, -5, 0);
         shake.setDuration(400);
         shake.start();
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(TeacherSignup.this, StudentLogin.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish(); // Optional: prevents returning to this activity from login
     }
 }

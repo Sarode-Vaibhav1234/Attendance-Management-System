@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    $checkQuery = "SELECT id FROM teachers WHERE username = '$username' AND password = '$password'";
+    $checkQuery = "SELECT id FROM teachersSignup WHERE username = '$username' AND password = '$password'";
     $checkResult = mysqli_query($conn, $checkQuery);
 
     if (mysqli_num_rows($checkResult) > 0) {

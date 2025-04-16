@@ -1,6 +1,7 @@
 package com.example.studentattendencesystem;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +32,8 @@ public class StudentSignup extends AppCompatActivity {
     private EditText etName, etPrn, etEmail, etAdmission, etContact, etPassword, etConfirmPassword;
     private Button btnSignup;
 
+    private TextView signUpTextView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +49,7 @@ public class StudentSignup extends AppCompatActivity {
         etConfirmPassword = findViewById(R.id.confirm_password);
         btnSignup = findViewById(R.id.btn_signup);
         ImageView imageView = findViewById(R.id.imageView);
+        signUpTextView = findViewById(R.id.signUpTextView);
 
         Drawable drawable = getDrawable(R.drawable.signup);
 
@@ -56,6 +61,13 @@ public class StudentSignup extends AppCompatActivity {
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 
+        signUpTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ii=new Intent(getApplicationContext(),StudentLogin.class);
+                startActivity(ii);
+            }
+        });
         btnSignup.setOnClickListener(v -> signup());
     }
 
@@ -139,5 +151,11 @@ public class StudentSignup extends AppCompatActivity {
         ObjectAnimator shake = ObjectAnimator.ofFloat(view, "translationX", 0, 10, -10, 10, -10, 5, -5, 0);
         shake.setDuration(400);
         shake.start();
+    }
+    public void onBackPressed() {
+        Intent intent = new Intent(StudentSignup.this, StudentLogin.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish(); // Optional: prevents returning to this activity from login
     }
 }
